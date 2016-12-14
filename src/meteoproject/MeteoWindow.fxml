@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+
+    <TabPane  maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" 
+         xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml">
+  <tabs>
+    <Tab text="Thermostat">
+        <content>
+        <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+             <Spinner fx:id="therm" GridPane.halignment="CENTER" GridPane.rowIndex="1"/>            
+             <Label text="Thermostat :" textFill="red" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+                <font> <javafx.scene.text.Font size="35" /> </font>
+            </Label>
+         </children>
+      </GridPane>
+      </content>
+    </Tab>
+    <Tab text="Icone météo">
+        <BorderPane>
+            <center>
+                <ImageView fitHeight="300.0" fitWidth="300.0" preserveRatio="true" BorderPane.alignment="CENTER">
+                    <image>
+                        <Image fx:id="img" url="@images/froid.png" />
+                    </image>
+                </ImageView>
+            </center>
+        </BorderPane>
+    </Tab>
+      
+    
+  </tabs>
+</TabPane>
