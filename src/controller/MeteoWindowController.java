@@ -3,50 +3,49 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller;
+package Controller;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
-import metier.Capteur;
-
-
+import Metier.ICapteur;
 /**
+ * FXML Controller class
  *
- * @author bagandboeu
+ * @author BASTIEN
  */
-public class MeteoWindowController implements Initializable {
-    
-    
+public class MeteoWindowController extends AbstractController{
+
+     
     @FXML private Spinner<Double> therm;
-    private final Capteur c;
-    private final DoubleProperty t;
+    private final ICapteur c;
+    private DoubleProperty t;
     
-    public MeteoWindowController(Capteur c) throws Exception{
+    public MeteoWindowController(ICapteur c) throws Exception{
         this.c=c;
         t = new SimpleDoubleProperty(c.getTemperature());
-        System.out.println(c.getTemperature());
+        this.c.setObs(this);
+        Runnable cp = (Runnable) this.c;
+        new Thread(cp).start();
+        
+        
     }
     
     //@FXML
     //private Image img;
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        therm.setValueFactory(new SpinnerValueFactory.DoubleSpinnerValueFactory(-10,40));
-        therm.getValueFactory().valueProperty().bind(t.asObject());  
+    public void update(){
+        System.out.println("ca marche pas a partir d'ici !!!!");
     }
     
-    
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        therm.setValueFactory(new SpinnerValueFactory.DoubleSpinnerValueFactory(-10,40));
+        therm.getValueFactory().valueProperty().bind(t.asObject());
+    }
 }

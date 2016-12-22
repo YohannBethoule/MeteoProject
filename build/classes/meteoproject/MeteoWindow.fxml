@@ -10,8 +10,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.image.*?>
 
-    <TabPane  maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" 
-         xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml">
+    <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" 
+             xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml">
   <tabs>
     <Tab text="Thermostat">
         <content>
@@ -48,3 +48,4 @@
     
   </tabs>
 </TabPane>
+

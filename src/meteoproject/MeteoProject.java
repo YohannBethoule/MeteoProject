@@ -5,29 +5,34 @@
  */
 package meteoproject;
 
+import Metier.CapteurThread;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import metier.Borne;
-import metier.Capteur;
-import metier.GenerationTemperature;
 
 /**
  *
- * @author bagandboeu
+ * @author BASTIEN
  */
 public class MeteoProject extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
+        
+        
         Parent root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
         
         Scene scene = new Scene(root);
         
         stage.setScene(scene);
         stage.show();
+        
     }
 
     /**

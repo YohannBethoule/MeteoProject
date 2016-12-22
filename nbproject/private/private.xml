@@ -3,18 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/etud/info/bagandboeu/NetBeansProjects/MeteoProject/src/metier/Capteur.java</file>
-            <file>file:/home/etud/info/bagandboeu/NetBeansProjects/MeteoProject/src/meteoproject/images/froid.png</file>
-            <file>file:/home/etud/info/bagandboeu/NetBeansProjects/MeteoProject/src/meteoproject/MeteoWindow.fxml</file>
-            <file>file:/home/etud/info/bagandboeu/NetBeansProjects/MeteoProject/src/metier/Fenetre.java</file>
-            <file>file:/home/etud/info/bagandboeu/NetBeansProjects/MeteoProject/src/controller/MenuController.java</file>
-            <file>file:/home/etud/info/bagandboeu/NetBeansProjects/MeteoProject/src/meteoproject/Menu.fxml</file>
-            <file>file:/home/etud/info/bagandboeu/NetBeansProjects/MeteoProject/src/metier/GenerationTemperature.java</file>
-            <file>file:/home/etud/info/bagandboeu/NetBeansProjects/MeteoProject/src/metier/Borne.java</file>
-            <file>file:/home/etud/info/bagandboeu/NetBeansProjects/MeteoProject/src/metier/ChoixImage.java</file>
-            <file>file:/home/etud/info/bagandboeu/NetBeansProjects/MeteoProject/src/meteoproject/images/normal.jpg</file>
-            <file>file:/home/etud/info/bagandboeu/NetBeansProjects/MeteoProject/src/controller/MeteoWindowController.java</file>
-            <file>file:/home/etud/info/bagandboeu/NetBeansProjects/MeteoProject/src/meteoproject/MeteoProject.java</file>
+            <file>file:/C:/Users/BASTIEN/Documents/NetBeansProjects/MeteoProject/src/Controller/MeteoWindowController.java</file>
+            <file>file:/C:/Users/BASTIEN/Documents/NetBeansProjects/MeteoProject/src/Controller/MenuController.java</file>
+            <file>file:/C:/Users/BASTIEN/Documents/NetBeansProjects/MeteoProject/src/Metier/Capteur.java</file>
+            <file>file:/C:/Users/BASTIEN/Documents/NetBeansProjects/MeteoProject/src/Controller/AbstractController.java</file>
+            <file>file:/C:/Users/BASTIEN/Documents/NetBeansProjects/MeteoProject/src/Metier/ICapteur.java</file>
         </group>
     </open-files>
 </project-private>
