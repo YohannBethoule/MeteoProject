@@ -28,7 +28,7 @@ import Metier.MegaCapteur;
  */
 public class MegaCapteurController implements Initializable{
     @FXML
-    private Spinner<Integer> min,max,init,fenetre;
+    private Spinner<Integer> min,max,init,fenetre,dureeR;
     
     private MegaCapteur mc;
     
@@ -45,11 +45,13 @@ public class MegaCapteurController implements Initializable{
         max.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(-20, 40, 0));
         init.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(-20, 40, 0));
         fenetre.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(-20, 40, 0));
+        dureeR.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 60,5));
     }    
     
     @FXML
     private void ajout1() throws Exception{
         GenerationTemperature gt = new Borne();
+        
         ICapteur c= new Capteur(gt);
         
         mc.ajouterC(c);
@@ -74,7 +76,7 @@ public class MegaCapteurController implements Initializable{
     
     @FXML
     private void creer() throws Exception{
-        
+        mc.setIntervalleRegeneration(dureeR.getValue());
         MeteoWindowController mw = new MeteoWindowController(mc);
         Stage stage = new Stage();
         FXMLLoader f = new FXMLLoader(getClass().getResource("/meteoproject/MeteoWindow.fxml"));

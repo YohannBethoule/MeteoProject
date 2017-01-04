@@ -15,6 +15,10 @@ public abstract class ICapteur {
     public void setObs(AbstractController obs){
         this.observer=obs;
     }
+    public long IntGeneration;
+    public abstract void arreter();
+    public abstract void run();
+    public abstract void regenere();
 
 }
 

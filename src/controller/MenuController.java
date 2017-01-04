@@ -70,7 +70,7 @@ public class MenuController implements Initializable {
     @FXML
     private void algo2() throws Exception{
         GenerationTemperature gt = new Borne(min.getValue(),max.getValue());
-        ICapteur c= new Capteur(gt);
+        ICapteur c= new Capteur(gt, interBorne.getValue());
         
         MeteoWindowController mw = new MeteoWindowController(c);
         Stage stage = new Stage();
@@ -87,7 +87,7 @@ public class MenuController implements Initializable {
     @FXML
     private void algo3() throws Exception{
         GenerationTemperature gt = new Fenetre(init.getValue(),fenetre.getValue());
-        ICapteur c= new Capteur(gt);
+        ICapteur c= new Capteur(gt, interFenetre.getValue());
         
         MeteoWindowController mw = new MeteoWindowController(c);
         Stage stage = new Stage();

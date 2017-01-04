@@ -57,6 +57,8 @@
                   <Spinner fx:id="fenetre" BorderPane.alignment="CENTER" />
                </center>
             </BorderPane>
+
+            
             <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3">
                <center>
                   <Button mnemonicParsing="false" onAction="#ajout1" text="Ajouter" BorderPane.alignment="CENTER" />
@@ -81,6 +83,18 @@
       </TextField>
    </top>
    <bottom>
-      <Button mnemonicParsing="false" text="Créer" onAction="#creer" BorderPane.alignment="CENTER" />
+       <GridPane BorderPane.alignment="CENTER">
+           <columnConstraints>
+               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+           </columnConstraints>
+                    
+           <Label text="Fenetre" BorderPane.alignment="CENTER" GridPane.columnIndex="0" />
+           <Spinner fx:id="dureeR" BorderPane.alignment="CENTER" GridPane.columnIndex="1" />
+        
+
+            <Button mnemonicParsing="false" text="Créer" onAction="#creer" GridPane.columnIndex="2" />
+      </GridPane>
    </bottom>
 </BorderPane>

@@ -6,7 +6,9 @@
             <file>file:/C:/Users/BASTIEN/Documents/NetBeansProjects/MeteoProject/src/Controller/MeteoWindowController.java</file>
             <file>file:/C:/Users/BASTIEN/Documents/NetBeansProjects/MeteoProject/src/Controller/MenuController.java</file>
             <file>file:/C:/Users/BASTIEN/Documents/NetBeansProjects/MeteoProject/src/Metier/Capteur.java</file>
-            <file>file:/C:/Users/BASTIEN/Documents/NetBeansProjects/MeteoProject/src/Controller/AbstractController.java</file>
+            <file>file:/C:/Users/BASTIEN/Documents/NetBeansProjects/MeteoProject/src/Controller/MegaCapteurController.java</file>
+            <file>file:/C:/Users/BASTIEN/Documents/NetBeansProjects/MeteoProject/src/meteoproject/MeteoWindow.fxml</file>
+            <file>file:/C:/Users/BASTIEN/Documents/NetBeansProjects/MeteoProject/src/Metier/MegaCapteur.java</file>
             <file>file:/C:/Users/BASTIEN/Documents/NetBeansProjects/MeteoProject/src/Metier/ICapteur.java</file>
         </group>
     </open-files>

@@ -38,13 +38,21 @@
             <center>
                 <ImageView fitHeight="300.0" fitWidth="300.0" preserveRatio="true" BorderPane.alignment="CENTER">
                     <image>
-                        <Image fx:id="img" url="@images/froid.png" />
+                        <Image fx:id="img" url="@Images/froid.png"/>
                     </image>
                 </ImageView>
             </center>
         </BorderPane>
     </Tab>
-      
+      <Tab text="Thermomètre">
+         <content>
+            <Pane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <ProgressBar fx:id="thermometre" layoutX="187.0" layoutY="111.0" prefHeight="47.0" prefWidth="200.0" rotate="-90.0" />
+               </children>
+            </Pane>
+         </content>
+      </Tab>
     
   </tabs>
 </TabPane>
