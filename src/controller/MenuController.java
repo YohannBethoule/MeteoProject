@@ -53,13 +53,14 @@ public class MenuController implements Initializable {
     private void algo1() throws Exception{
         GenerationTemperature gt = new Borne();
         ICapteur c= new Capteur(gt,interDefault.getValue());
+        ICapteur.cm.ajoutCapteur(c);
         
         MeteoWindowController mw = new MeteoWindowController(c);
         Stage stage = new Stage();
         FXMLLoader f = new FXMLLoader(getClass().getResource("/meteoproject/MeteoWindow.fxml"));
         f.setController(mw);
         Parent root = f.load();
-        
+        stage.setOnCloseRequest(event -> mw.stop());
         Scene scene = new Scene(root);
         
         stage.setScene(scene);
@@ -71,6 +72,7 @@ public class MenuController implements Initializable {
     private void algo2() throws Exception{
         GenerationTemperature gt = new Borne(min.getValue(),max.getValue());
         ICapteur c= new Capteur(gt, interBorne.getValue());
+        ICapteur.cm.ajoutCapteur(c);
         
         MeteoWindowController mw = new MeteoWindowController(c);
         Stage stage = new Stage();
@@ -88,6 +90,7 @@ public class MenuController implements Initializable {
     private void algo3() throws Exception{
         GenerationTemperature gt = new Fenetre(init.getValue(),fenetre.getValue());
         ICapteur c= new Capteur(gt, interFenetre.getValue());
+        ICapteur.cm.ajoutCapteur(c);
         
         MeteoWindowController mw = new MeteoWindowController(c);
         Stage stage = new Stage();
@@ -105,7 +108,7 @@ public class MenuController implements Initializable {
     private void newMega() throws IOException{
         ICapteur mc = new MegaCapteur();
         
-        MegaCapteurController mcc= new MegaCapteurController((MegaCapteur) mc);
+        MegaCapteurController mcc= new MegaCapteurController((MegaCapteur) mc, ICapteur.cm);
         Stage stage = new Stage();
         FXMLLoader f = new FXMLLoader(getClass().getResource("/meteoproject/MegaCapteur.fxml"));
         f.setController(mcc);
@@ -114,6 +117,7 @@ public class MenuController implements Initializable {
         Scene scene = new Scene(root);
         
         stage.setScene(scene);
+        
         stage.show();
     }
     

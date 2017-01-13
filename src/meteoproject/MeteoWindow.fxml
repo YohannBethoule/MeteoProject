@@ -10,8 +10,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.image.*?>
 
-    <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" 
-             xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
   <tabs>
     <Tab text="Thermostat">
         <content>
@@ -25,7 +24,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-             <Spinner fx:id="therm" GridPane.halignment="CENTER" GridPane.rowIndex="1"/>            
+             <Spinner fx:id="therm" GridPane.halignment="CENTER" GridPane.rowIndex="1" />            
              <Label text="Thermostat :" textFill="red" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
                 <font> <javafx.scene.text.Font size="35" /> </font>
             </Label>
@@ -36,24 +35,30 @@
     <Tab text="Icone météo">
         <BorderPane>
             <center>
-                <ImageView fitHeight="300.0" fitWidth="300.0" preserveRatio="true" BorderPane.alignment="CENTER">
-                    <image>
-                        <Image fx:id="img" url="@Images/froid.png"/>
-                    </image>
+                <ImageView fx:id="img" fitHeight="300.0" fitWidth="300.0" preserveRatio="true" BorderPane.alignment="CENTER">
                 </ImageView>
             </center>
         </BorderPane>
     </Tab>
       <Tab text="Thermomètre">
          <content>
-            <Pane prefHeight="200.0" prefWidth="200.0">
-               <children>
-                  <ProgressBar fx:id="thermometre" layoutX="187.0" layoutY="111.0" prefHeight="47.0" prefWidth="200.0" rotate="-90.0" />
-               </children>
-            </Pane>
+             <BorderPane>
+                 <center>
+                    <Pane>
+                       <children>
+                          <ProgressBar fx:id="thermometre" layoutX="200.0" layoutY="146.0" prefHeight="47.0" prefWidth="200.0" progress="0.8" rotate="-90.0" />
+                          <Label layoutX="317.0" layoutY="223.0" text="- 0 °C" />
+                          <Label layoutX="317.0" layoutY="254.0" text="- -10 °C" />
+                          <Label layoutX="319.0" layoutY="184.0" text="- 10 °C" />
+                          <Label layoutX="319.0" layoutY="143.0" text="- 20 °C" />
+                          <Label layoutX="319.0" layoutY="103.0" text="- 30 °C" />
+                          <Label layoutX="319.0" layoutY="62.0" text="- 40 °C" />
+                       </children>
+                    </Pane>
+                 </center>
+            </BorderPane>
          </content>
       </Tab>
     
   </tabs>
 </TabPane>
-

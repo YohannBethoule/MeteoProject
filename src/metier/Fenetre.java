@@ -25,4 +25,9 @@ public class Fenetre implements GenerationTemperature{
     public double randomPick(){
         return Math.round((min+inter*rand.nextDouble())*PRECISION)/PRECISION;
     }
+    
+    @Override
+    public String toString(){
+        return "algo Fenetre min="+this.min+" max="+this.max;
+    }
 }

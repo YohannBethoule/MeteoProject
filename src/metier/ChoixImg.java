@@ -13,11 +13,11 @@ public class ChoixImg {
     
     public static String chooser(double temp){
         if(temp<0){
-            return "@Images/froid.png";
+            return "/Images/froid.png";
         }
         else if(temp>20){
-            return "@Images/soleil.gif";
+            return "/Images/soleil.gif";
         }
-        else return "@Images/normal.jpg";       
+        else return "/Images/normal.jpg";       
     } 
 }

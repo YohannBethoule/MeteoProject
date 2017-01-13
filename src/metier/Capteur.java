@@ -17,6 +17,7 @@ import javafx.beans.property.SimpleDoubleProperty;
  */
 public class Capteur extends ICapteur implements Runnable{
     
+    Thread t= new Thread();
     private DoubleProperty temperature = new SimpleDoubleProperty();
     private GenerationTemperature gt;
     private boolean actif =true;
@@ -56,7 +57,7 @@ public class Capteur extends ICapteur implements Runnable{
     public void run(){
         while(actif){
             try{
-            Thread.sleep(IntGeneration);
+            t.sleep(IntGeneration);
             }catch(InterruptedException e){
                 System.err.println("pb sleep");
             }
@@ -68,13 +69,19 @@ public class Capteur extends ICapteur implements Runnable{
             }
         }
     }
-        
-     public void arreter(){   
+     
+    @Override
+    public void arreter(){   
          actif=false;
-     }
+    }
      
      @Override 
      public void regenere(){
          this.setTemperature();
+     }
+     
+     @Override
+     public String toString(){
+         return"Capteur Simple "+this.gt.toString()+" intervale de generation = "+this.IntGeneration;
      }
 }

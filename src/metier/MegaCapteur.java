@@ -7,6 +7,7 @@ package Metier;
 
 import Controller.AbstractController;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
@@ -16,6 +17,8 @@ import javafx.beans.property.SimpleDoubleProperty;
  * @author bagandboeu
  */
 public class MegaCapteur extends ICapteur implements Runnable{
+    
+    Thread t = new Thread();
     private boolean actif=true;
     private List<ICapteur> mc;
     private static final int PRECISION = 100;
@@ -39,18 +42,11 @@ public class MegaCapteur extends ICapteur implements Runnable{
         this.temperature.set(Math.round((mt/mc.size()*PRECISION)/PRECISION));
     }
     
-    public MegaCapteur(List<ICapteur> mc){
-        this.mc=mc;
-    }
-    
     public MegaCapteur(){
         mc=new ArrayList<>();
+        //ICapteur.cm.ajoutCapteur(this);
     }
-    
-    
-    public MegaCapteur(List<ICapteur> mc, AbstractController obs){
-        this.observer=obs;
-    }
+
     
     public void ajouterC(ICapteur c){
         mc.add(c);
@@ -67,15 +63,14 @@ public class MegaCapteur extends ICapteur implements Runnable{
     }
     
     @Override
-    public void run(){
-        
+    public void run(){   
         while(actif){
             for(ICapteur c : this.mc){
                 c.regenere();
             
             }
             try{
-            Thread.sleep(IntGeneration);
+            t.sleep(IntGeneration);
             }catch(InterruptedException e){
                 System.err.println("pb sleep");
             }
@@ -83,8 +78,6 @@ public class MegaCapteur extends ICapteur implements Runnable{
             this.observer.update();
         }
     }
-    
-
     
     @Override
     public void arreter(){
@@ -95,12 +88,16 @@ public class MegaCapteur extends ICapteur implements Runnable{
         }
     }
     
-    
-    
     @Override
     public void regenere(){
-        for(ICapteur c : mc){
+        for (ICapteur c : mc) {
             c.regenere();
         }
+        this.setTemperature();
     }
+    
+    @Override
+     public String toString(){
+         return "MegaCapteur generation toute les "+this.IntGeneration+" secondes";
+     }
 }

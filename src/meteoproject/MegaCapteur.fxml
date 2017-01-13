@@ -6,8 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane id="BorderPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1"
-            xmlns="http://javafx.com/javafx/8.0.60">
+<BorderPane id="BorderPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
     <center>
       <GridPane BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -17,6 +16,7 @@
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -74,11 +74,22 @@
                   <Button mnemonicParsing="false" onAction="#ajout3" text="Ajouter" BorderPane.alignment="CENTER" />
                </center>
             </BorderPane>
+            <Label text="Ajout Capteur existant" GridPane.rowIndex="3" />
+            <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3">
+               <center>
+                  <ComboBox fx:id="list" prefWidth="150.0" BorderPane.alignment="CENTER" />
+               </center>
+            </BorderPane>
+            <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
+               <center>
+                  <Button mnemonicParsing="false" onAction="#ajoutExist" text="Ajouter" BorderPane.alignment="CENTER" />
+               </center>
+            </BorderPane>
          </children>
       </GridPane>
    </center>
    <top>
-      <TextField editable="false" alignment="CENTER" text="Bonjour ! Bienvenue sur le générateur gratuit de température !" BorderPane.alignment="CENTER">
+      <TextField alignment="CENTER" editable="false" text="Bonjour ! Bienvenue sur le générateur gratuit de température !" BorderPane.alignment="CENTER">
          
       </TextField>
    </top>
@@ -94,7 +105,10 @@
            <Spinner fx:id="dureeR" BorderPane.alignment="CENTER" GridPane.columnIndex="1" />
         
 
-            <Button mnemonicParsing="false" text="Créer" onAction="#creer" GridPane.columnIndex="2" />
+            <Button mnemonicParsing="false" onAction="#creer" text="Créer" GridPane.columnIndex="2" />
+         <rowConstraints>
+            <RowConstraints />
+         </rowConstraints>
       </GridPane>
    </bottom>
 </BorderPane>

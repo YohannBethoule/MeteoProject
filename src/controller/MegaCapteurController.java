@@ -17,10 +17,12 @@ import javafx.scene.control.SpinnerValueFactory;
 import javafx.stage.Stage;
 import Metier.Borne;
 import Metier.Capteur;
+import Metier.CapteurManager;
 import Metier.Fenetre;
 import Metier.GenerationTemperature;
 import Metier.ICapteur;
 import Metier.MegaCapteur;
+import javafx.scene.control.ComboBox;
 
 /**
  *
@@ -30,10 +32,15 @@ public class MegaCapteurController implements Initializable{
     @FXML
     private Spinner<Integer> min,max,init,fenetre,dureeR;
     
-    private MegaCapteur mc;
+    @FXML
+    private ComboBox list;
     
-    public MegaCapteurController(MegaCapteur mc){
+    private MegaCapteur mc;
+    private CapteurManager cm;
+    
+    public MegaCapteurController(MegaCapteur mc, CapteurManager cm){
         this.mc=mc;
+        this.cm=cm;
     }
     
     /**
@@ -46,6 +53,9 @@ public class MegaCapteurController implements Initializable{
         init.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(-20, 40, 0));
         fenetre.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(-20, 40, 0));
         dureeR.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 60,5));
+
+        list.itemsProperty().bind(cm.lesCapteurStringProperty());
+        list.getSelectionModel().select(1);
     }    
     
     @FXML
@@ -75,17 +85,23 @@ public class MegaCapteurController implements Initializable{
     }
     
     @FXML
+    private void ajoutExist() throws Exception{
+        this.mc.ajouterC(cm.FindCapteur(list.getSelectionModel().getSelectedItem().toString()));
+    }
+    
+    @FXML
     private void creer() throws Exception{
         mc.setIntervalleRegeneration(dureeR.getValue());
+        this.cm.ajoutCapteur(this.mc);
         MeteoWindowController mw = new MeteoWindowController(mc);
         Stage stage = new Stage();
         FXMLLoader f = new FXMLLoader(getClass().getResource("/meteoproject/MeteoWindow.fxml"));
         f.setController(mw);
         Parent root = f.load();
-        
         Scene scene = new Scene(root);
-        
         stage.setScene(scene);
+        fenetre.getScene().getWindow().hide();
         stage.show();
+        
     }
 }

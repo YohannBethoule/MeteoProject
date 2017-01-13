@@ -9,7 +9,7 @@ import Controller.AbstractController;
 
 public abstract class ICapteur {
 
-    
+    public static CapteurManager cm = new CapteurManager();
     public abstract double getTemperature();
     public AbstractController observer;
     public void setObs(AbstractController obs){
@@ -19,6 +19,8 @@ public abstract class ICapteur {
     public abstract void arreter();
     public abstract void run();
     public abstract void regenere();
+    @Override
+    public abstract String toString();
 
 }
 

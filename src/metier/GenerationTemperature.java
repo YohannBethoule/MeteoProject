@@ -8,4 +8,6 @@ package Metier;
 public interface GenerationTemperature {
     
     public double randomPick();
+    @Override
+    public String toString();
 }

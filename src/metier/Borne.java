@@ -32,4 +32,8 @@ public class Borne implements GenerationTemperature{
         return Math.round((min+inter*rand.nextDouble())*PRECISION)/PRECISION;
     }
     
+    @Override
+    public String toString(){
+        return "algo Borne min="+this.min+" max="+this.max;
+    }
 }
