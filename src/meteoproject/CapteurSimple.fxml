@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MenuController">
+   <center>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <top>
+                  <Label text="Min" BorderPane.alignment="CENTER" />
+               </top>
+               <center>
+                  <Spinner fx:id="min" BorderPane.alignment="CENTER" />
+               </center>
+            </BorderPane>
+            <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <top>
+                  <Label text="Max" BorderPane.alignment="CENTER" />
+               </top>
+               <center>
+                  <Spinner fx:id="max" BorderPane.alignment="CENTER" />
+               </center>
+            </BorderPane>
+               
+            <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="0">
+                <top>
+                    <Label text="Actualisation :" textAlignment="CENTER" BorderPane.alignment="CENTER" />
+                </top>
+                <center>
+                     <Spinner fx:id="interDefault" BorderPane.alignment="CENTER" />
+                </center>
+            </BorderPane>
+            
+            
+            <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                <center>
+                     <Spinner fx:id="interBorne" BorderPane.alignment="CENTER" />
+                </center>
+               <top>
+                  <Label text="Actualisation :" textAlignment="CENTER" BorderPane.alignment="CENTER" />
+               </top>
+            </BorderPane>
+            
+            
+            <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                <center>
+                     <Spinner fx:id="interFenetre" BorderPane.alignment="CENTER" />
+                </center>
+               <top>
+                  <Label text="Actualisation :" textAlignment="CENTER" BorderPane.alignment="CENTER" />
+               </top>
+            </BorderPane>
+                
+                    
+                            
+            <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <top>
+                  <Label text="T° initiale" BorderPane.alignment="CENTER" />
+               </top>
+               <center>
+                  <Spinner fx:id="init" BorderPane.alignment="CENTER" />
+               </center>
+            </BorderPane>
+            <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <top>
+                  <Label text="Fenetre" BorderPane.alignment="CENTER" />
+               </top>
+               <center>
+                  <Spinner fx:id="fenetre" BorderPane.alignment="CENTER" />
+               </center>
+            </BorderPane>
+            <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4">
+               <center>
+                  <Button mnemonicParsing="false" onAction="#algo1" text="Générer" BorderPane.alignment="CENTER" />
+               </center>
+            </BorderPane>
+            <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
+               <center>
+                  <Button mnemonicParsing="false" onAction="#algo2" text="Générer" BorderPane.alignment="CENTER" />
+               </center>
+            </BorderPane>
+            <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="2">
+               <center>
+                  <Button mnemonicParsing="false" onAction="#algo3" text="Générer" BorderPane.alignment="CENTER" />
+               </center>
+            </BorderPane>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="T° changeant entre -10 et 40" textAlignment="CENTER" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="T° changeant entre&#10;min et max" textAlignment="CENTER" GridPane.rowIndex="1" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="T° changeant à partir&#10;d'une t° initiale dans&#10;la fenêtre demandée" textAlignment="CENTER" GridPane.rowIndex="2" />
+            
+         </children>
+      </GridPane>
+     
+   </center>
+   <top>
+      <TextField alignment="CENTER" editable="false" text="Création Capteur Simple" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </TextField>
+   </top>
+</BorderPane>

@@ -3,17 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/BASTIEN/Documents/NetBeansProjects/MeteoProject/src/Metier/CapteurManager.java</file>
-            <file>file:/C:/Users/BASTIEN/Documents/NetBeansProjects/MeteoProject/src/Controller/MeteoWindowController.java</file>
-            <file>file:/C:/Users/BASTIEN/Documents/NetBeansProjects/MeteoProject/src/meteoproject/MeteoProject.java</file>
-            <file>file:/C:/Users/BASTIEN/Documents/NetBeansProjects/MeteoProject/src/Controller/MenuController.java</file>
-            <file>file:/C:/Users/BASTIEN/Documents/NetBeansProjects/MeteoProject/src/Metier/Borne.java</file>
-            <file>file:/C:/Users/BASTIEN/Documents/NetBeansProjects/MeteoProject/src/Metier/GenerationTemperature.java</file>
-            <file>file:/C:/Users/BASTIEN/Documents/NetBeansProjects/MeteoProject/src/Metier/Capteur.java</file>
-            <file>file:/C:/Users/BASTIEN/Documents/NetBeansProjects/MeteoProject/src/Controller/MegaCapteurController.java</file>
-            <file>file:/C:/Users/BASTIEN/Documents/NetBeansProjects/MeteoProject/src/Controller/AbstractController.java</file>
-            <file>file:/C:/Users/BASTIEN/Documents/NetBeansProjects/MeteoProject/src/Metier/Fenetre.java</file>
-            <file>file:/C:/Users/BASTIEN/Documents/NetBeansProjects/MeteoProject/src/Metier/MegaCapteur.java</file>
+            <file>file:/C:/Users/Léandre/Desktop/MeteoProject/src/meteoproject/Menu.fxml</file>
+            <file>file:/C:/Users/Léandre/Desktop/MeteoProject/src/meteoproject/MegaCapteur2.fxml</file>
+            <file>file:/C:/Users/Léandre/Desktop/MeteoProject/src/meteoproject/MegaCapteur.fxml</file>
+            <file>file:/C:/Users/Léandre/Desktop/MeteoProject/src/meteoproject/Menu2.fxml</file>
+            <file>file:/C:/Users/Léandre/Desktop/MeteoProject/src/meteoproject/MeteoWindow.fxml</file>
+            <file>file:/C:/Users/Léandre/Desktop/MeteoProject/src/meteoproject/CapteurSimple.fxml</file>
         </group>
     </open-files>
 </project-private>
