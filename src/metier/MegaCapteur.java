@@ -20,10 +20,9 @@ import javafx.collections.ObservableList;
  *
  * @author bagandboeu
  */
-public class MegaCapteur extends ICapteur implements Runnable{
+public class MegaCapteur extends ICapteur{
     
-    Thread t = new Thread();
-    private boolean actif=true;
+   
     private List<ICapteur> mc;
     private ObservableList<String> ObslistMC= FXCollections.observableArrayList();
     private final ListProperty<String> listMC= new SimpleListProperty<>(ObslistMC);
@@ -33,6 +32,7 @@ public class MegaCapteur extends ICapteur implements Runnable{
         
     private static final int PRECISION = 100;
     private DoubleProperty temperature = new SimpleDoubleProperty();
+    
     
     public DoubleProperty temperatureProperty(){
         return temperature;
@@ -47,36 +47,19 @@ public class MegaCapteur extends ICapteur implements Runnable{
         double mt=0;
         for(int i=0;i<mc.size();i++){
             mt=mt+mc.get(i).getTemperature();
-            
         }
         this.temperature.set(Math.round((mt/mc.size()*PRECISION)/PRECISION));
     }
     
     public MegaCapteur(){
         mc=new ArrayList<>();
+        this.IntGeneration=0;
     }
+
     
     public void ajouterC(ICapteur c){
         mc.add(c);
-        this.setLesMCapteurString(List2String());
         this.setTemperature();
-    }
-    
-    public ObservableList<String> List2String(){
-        ObservableList<String> l = FXCollections.observableArrayList();
-        for(ICapteur c : this.mc){
-            l.add(c.toString());
-        }
-        return l;
-    } 
-    
-    public ICapteur FindCapteur(String s){
-        for(ICapteur c : this.mc){
-            if(c.toString().equals(s)){
-                return c;
-            }
-        }
-        return null;
     }
     
     public void enleverC(ICapteur c){
@@ -84,46 +67,34 @@ public class MegaCapteur extends ICapteur implements Runnable{
         this.setTemperature();
     }
     
-    public void setIntervalleRegeneration(long time){
-        this.IntGeneration=time*1000;
-    }
-    
-    @Override
-    public void run(){   
-        while(actif){
-            for(ICapteur c : this.mc){
-                c.regenere();
-            
-            }
-            try{
-            t.sleep(IntGeneration);
-            }catch(InterruptedException e){
-                System.err.println("pb sleep");
-            }
-            this.setTemperature();
-            this.observer.update();
-        }
-    }
-    
     @Override
     public void arreter(){
-        try{
-            this.actif=false; 
-        }catch(Exception e){
-            System.out.println("Metier.MegaCapteur.arreter()");
+        System.out.println("Metier.MegaCapteur.arreter()");
+        for(ICapteur c: this.mc){
+            c.arreter();
         }
+        this.t.arreter();
     }
-    
-    @Override
-    public void regenere(){
-        for (ICapteur c : mc) {
-            c.regenere();
-        }
-        this.setTemperature();
-    }
+
     
     @Override
      public String toString(){
          return "MegaCapteur generation toute les "+this.IntGeneration+" secondes";
      }
+     
+     
+    @Override
+     public void activer(){
+         for(ICapteur c : this.mc){
+             c.activer();
+         }
+         this.t=new ThreadCapteur(this);
+         this.t.go();
+     }
+     
+     @Override
+     public void traitement(){
+         this.setTemperature();
+     }
+     
 }

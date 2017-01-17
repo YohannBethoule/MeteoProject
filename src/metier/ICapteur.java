@@ -7,8 +7,8 @@ package Metier;
 
 import Controller.AbstractController;
 
-public abstract class ICapteur {
-
+public abstract class ICapteur{
+    ThreadCapteur t;
     public static CapteurManager cm = new CapteurManager();
     public abstract double getTemperature();
     public AbstractController observer;
@@ -17,10 +17,9 @@ public abstract class ICapteur {
     }
     public long IntGeneration;
     public abstract void arreter();
-    public abstract void run();
-    public abstract void regenere();
     @Override
     public abstract String toString();
-
+    public abstract void activer();
+    public abstract void traitement();
 }
 

@@ -41,19 +41,13 @@ public class MeteoWindowController extends AbstractController{
     
     public MeteoWindowController(ICapteur c) throws Exception{        
         this.c=c;
-        
-        t = new SimpleDoubleProperty(c.getTemperature());
-        c.setObs(this);
-        
-        Runnable cp = (Runnable) this.c;
-        new Thread(cp).start();
-        
-        
+        t = new SimpleDoubleProperty(c.getTemperature()); 
     }
     
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        this.c.setObs(this);
         Image i = new Image(ChoixImg.chooser(c.getTemperature()));
         img.setImage(i);
         double d = ((c.getTemperature()+10)/100)*2;
@@ -62,12 +56,12 @@ public class MeteoWindowController extends AbstractController{
         this.therm.getValueFactory().valueProperty().bindBidirectional(t.asObject());
         this.therm.setEditable(false);
         this.update();
+        this.c.activer();
     }
     
     
     @Override
     public void update(){
-        try{
           double d = ((c.getTemperature()+10)/100)*2;
           this.thermometre.setProgress(d);
           double TempSpin = this.therm.getValue();
@@ -76,9 +70,6 @@ public class MeteoWindowController extends AbstractController{
           this.therm.increment((int)ecart); 
           Image i = new Image(ChoixImg.chooser(c.getTemperature()));
           img.setImage(i);
-        }catch(Exception e){
-            System.out.println("Controller.MeteoWindowController.update()");
-        }
     }
     
    

@@ -15,12 +15,10 @@ import javafx.beans.property.SimpleDoubleProperty;
  *
  * @author bagandboeu
  */
-public class Capteur extends ICapteur implements Runnable{
+public class Capteur extends ICapteur{
     
-    Thread t= new Thread();
     private DoubleProperty temperature = new SimpleDoubleProperty();
     private GenerationTemperature gt;
-    private boolean actif =true;
     public DoubleProperty temperatureProperty(){
         return temperature;
     }
@@ -35,7 +33,6 @@ public class Capteur extends ICapteur implements Runnable{
     }
     
     public Capteur(GenerationTemperature gt){
-        
         this.gt=gt;
         setTemperature();
         observer=null;
@@ -53,35 +50,29 @@ public class Capteur extends ICapteur implements Runnable{
         this.setTemperature();
     }
     
+    
     @Override
-    public void run(){
-        while(actif){
-            try{
-            t.sleep(IntGeneration);
-            }catch(InterruptedException e){
-                System.err.println("pb sleep");
-            }
-            this.setTemperature();
-            System.out.println(" \n coucou je change de temp CAP");
-            System.out.println(this.getTemperature());
-            if(observer != null){
-                this.observer.update();
-            }
-        }
+    public void arreter(){
+        this.t.arreter();
     }
-     
-    @Override
-    public void arreter(){   
-         actif=false;
-    }
-     
-     @Override 
-     public void regenere(){
-         this.setTemperature();
-     }
+
      
      @Override
      public String toString(){
          return"Capteur Simple "+this.gt.toString()+" intervale de generation = "+this.IntGeneration;
      }
+    
+    @Override
+    public void activer(){
+        this.t=new ThreadCapteur(this);
+        this.t.go();
+    }
+    
+    
+    @Override
+    public void traitement(){
+        this.setTemperature();
+    }
+     
 }
+

@@ -91,7 +91,7 @@ public class MegaCapteurController implements Initializable{
     
     @FXML
     private void creer() throws Exception{
-        mc.setIntervalleRegeneration(dureeR.getValue());
+        //mc.setIntervalleRegeneration(dureeR.getValue());
         this.cm.ajoutCapteur(this.mc);
         MeteoWindowController mw = new MeteoWindowController(mc);
         Stage stage = new Stage();
