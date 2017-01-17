@@ -10,7 +10,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleListProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -21,6 +25,12 @@ public class MegaCapteur extends ICapteur implements Runnable{
     Thread t = new Thread();
     private boolean actif=true;
     private List<ICapteur> mc;
+    private ObservableList<String> ObslistMC= FXCollections.observableArrayList();
+    private final ListProperty<String> listMC= new SimpleListProperty<>(ObslistMC);
+    public ObservableList<String> getLesMCapteurString() {return listMC.get();}
+        public void setLesMCapteurString(ObservableList<String> value) {listMC.set(value);}
+        public ListProperty<String> lesMCapteurStringProperty() {return listMC;}
+        
     private static final int PRECISION = 100;
     private DoubleProperty temperature = new SimpleDoubleProperty();
     
@@ -44,13 +54,29 @@ public class MegaCapteur extends ICapteur implements Runnable{
     
     public MegaCapteur(){
         mc=new ArrayList<>();
-        //ICapteur.cm.ajoutCapteur(this);
     }
-
     
     public void ajouterC(ICapteur c){
         mc.add(c);
+        this.setLesMCapteurString(List2String());
         this.setTemperature();
+    }
+    
+    public ObservableList<String> List2String(){
+        ObservableList<String> l = FXCollections.observableArrayList();
+        for(ICapteur c : this.mc){
+            l.add(c.toString());
+        }
+        return l;
+    } 
+    
+    public ICapteur FindCapteur(String s){
+        for(ICapteur c : this.mc){
+            if(c.toString().equals(s)){
+                return c;
+            }
+        }
+        return null;
     }
     
     public void enleverC(ICapteur c){

@@ -5,13 +5,10 @@
  */
 package Metier;
 
-import com.sun.javafx.collections.ElementObservableListDecorator;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.beans.property.ListProperty;
-import javafx.beans.property.ReadOnlyListProperty;
-import javafx.beans.property.SimpleListProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.SimpleListProperty;;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 

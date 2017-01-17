@@ -3,17 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package meteoproject;
 
-import Metier.CapteurThread;
+
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 /**
@@ -26,7 +21,7 @@ public class MeteoProject extends Application {
     public void start(Stage stage) throws Exception {
         
         
-        Parent root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/meteoproject/Menu2.fxml"));
         
         Scene scene = new Scene(root);
         

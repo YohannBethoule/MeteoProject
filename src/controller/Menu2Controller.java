@@ -20,42 +20,72 @@ import javafx.scene.control.SpinnerValueFactory;
 import javafx.stage.Stage;
 import Metier.Borne;
 import Metier.Capteur;
+import Metier.CapteurManager;
 import Metier.Fenetre;
 import Metier.GenerationTemperature;
 import Metier.ICapteur;
+import static Metier.ICapteur.cm;
 import Metier.MegaCapteur;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.scene.control.Button;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
 
 /**
  * FXML Controller class
  *
  * @author bagandboeu
  */
-public class MenuController implements Initializable {
+public class Menu2Controller implements Initializable {
     
     @FXML
-    private Spinner<Integer> min,max,init,fenetre,interDefault,interBorne,interFenetre;
+    private ListView listCapt;
+    
+    private CapteurManager cm;
+
+    public Menu2Controller() {
+        this.cm = ICapteur.cm;
+    }
     
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        min.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(-20, 40, 0));
-        max.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(-20, 40, 0));
-        init.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(-20, 40, 0));
-        fenetre.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(-20, 40, 0));
-        interDefault.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 60, 5));
-        interBorne.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 60, 5));
-        interFenetre.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 60, 5));  
+	listCapt.itemsProperty().bind(cm.lesCapteurStringProperty());
+        listCapt.getSelectionModel().select(1);
     }    
     
     @FXML
-    private void algo1() throws Exception{
-        GenerationTemperature gt = new Borne();
-        ICapteur c= new Capteur(gt,interDefault.getValue());
-        ICapteur.cm.ajoutCapteur(c);
+    private void newCapt() throws IOException{
+        Stage stage = new Stage();
+        FXMLLoader f = new FXMLLoader(getClass().getResource("/meteoproject/CapteurSimple.fxml"));
+        Parent root = f.load();
+        Scene scene = new Scene(root);
         
-        MeteoWindowController mw = new MeteoWindowController(c);
+        stage.setScene(scene);
+        stage.show();
+    }
+    
+    @FXML
+    private void newMCapt() throws IOException{
+        MegaCapteur mc = new MegaCapteur();
+        
+        MegaCapteurController2 mcc = new MegaCapteurController2(mc);
+        Stage stage = new Stage();
+        FXMLLoader f = new FXMLLoader(getClass().getResource("/meteoproject/MegaCapteur2.fxml"));
+        f.setController(mcc);
+        Parent root = f.load();
+        Scene scene = new Scene(root);
+        
+        stage.setScene(scene);
+        stage.show();
+    }
+    
+    @FXML
+    private void visualiser() throws Exception {
+        MeteoWindowController mw = new MeteoWindowController(cm.FindCapteur(listCapt.getSelectionModel().getSelectedItem().toString()));
         Stage stage = new Stage();
         FXMLLoader f = new FXMLLoader(getClass().getResource("/meteoproject/MeteoWindow.fxml"));
         f.setController(mw);
@@ -65,45 +95,10 @@ public class MenuController implements Initializable {
         
         stage.setScene(scene);
         stage.show();
-        
     }
     
+    /*
     @FXML
-    private void algo2() throws Exception{
-        GenerationTemperature gt = new Borne(min.getValue(),max.getValue());
-        ICapteur c= new Capteur(gt, interBorne.getValue());
-        ICapteur.cm.ajoutCapteur(c);
-        
-        MeteoWindowController mw = new MeteoWindowController(c);
-        Stage stage = new Stage();
-        FXMLLoader f = new FXMLLoader(getClass().getResource("/meteoproject/MeteoWindow.fxml"));
-        f.setController(mw);
-        Parent root = f.load();
-        
-        Scene scene = new Scene(root);
-        
-        stage.setScene(scene);
-        stage.show();
-    }
-    
-    @FXML
-    private void algo3() throws Exception{
-        GenerationTemperature gt = new Fenetre(init.getValue(),fenetre.getValue());
-        ICapteur c= new Capteur(gt, interFenetre.getValue());
-        ICapteur.cm.ajoutCapteur(c);
-        
-        MeteoWindowController mw = new MeteoWindowController(c);
-        Stage stage = new Stage();
-        FXMLLoader f = new FXMLLoader(getClass().getResource("/meteoproject/MeteoWindow.fxml"));
-        f.setController(mw);
-        Parent root = f.load();
-        
-        Scene scene = new Scene(root);
-        
-        stage.setScene(scene);
-        stage.show();
-    }
-    
     private void newMega() throws IOException{
         ICapteur mc = new MegaCapteur();
         
@@ -119,7 +114,7 @@ public class MenuController implements Initializable {
         
         stage.show();
     }
-    
+    */
     
     
 }
