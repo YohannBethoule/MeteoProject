@@ -19,6 +19,10 @@ public class Capteur extends ICapteur{
     
     private DoubleProperty temperature = new SimpleDoubleProperty();
     private GenerationTemperature gt;
+    public void setAlgo(GenerationTemperature gt){
+        this.gt=gt;
+    }
+    
     public DoubleProperty temperatureProperty(){
         return temperature;
     }
@@ -59,7 +63,7 @@ public class Capteur extends ICapteur{
      
      @Override
      public String toString(){
-         return"Capteur Simple "+this.gt.toString()+" intervale de generation = "+this.IntGeneration;
+         return"Capteur Simple "+this.gt.toString()+" intervale de generation = "+this.IntGeneration/1000+"s";
      }
     
     @Override

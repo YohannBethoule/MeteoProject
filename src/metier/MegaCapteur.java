@@ -44,11 +44,13 @@ public class MegaCapteur extends ICapteur{
     }
     
     private void setTemperature(){
-        double mt=0;
-        for(int i=0;i<mc.size();i++){
-            mt=mt+mc.get(i).getTemperature();
+        int mt=0;
+        int ptotal=0;
+        for(ICapteur c : mc){
+            ptotal= ptotal + c.getPoid();
+            mt= (int)c.getTemperature()*c.getPoid() + mt;
         }
-        this.temperature.set(Math.round((mt/mc.size()*PRECISION)/PRECISION));
+        this.temperature.set(Math.round((mt/mc.size()*PRECISION)/PRECISION)/ptotal);
     }
     
     public MegaCapteur(){
@@ -79,7 +81,7 @@ public class MegaCapteur extends ICapteur{
     
     @Override
      public String toString(){
-         return "MegaCapteur generation toute les "+this.IntGeneration+" secondes";
+         return "MegaCapteur avec "+this.mc.size()+" capteurs";
      }
      
      

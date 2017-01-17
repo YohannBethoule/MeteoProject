@@ -33,6 +33,8 @@ public class MegaCapteurController2 implements Initializable{
     
     private MegaCapteur mc;
     
+
+    
     private StringProperty captSP = new SimpleStringProperty();
     public ObservableStringValue getCaptSP(){
         return captSP;
@@ -50,6 +52,8 @@ public class MegaCapteurController2 implements Initializable{
         
         listMCapt.itemsProperty().bind(mc.lesMCapteurStringProperty());
         listMCapt.getSelectionModel().select(0);
+        
+        
     }
     
     @FXML
@@ -57,5 +61,6 @@ public class MegaCapteurController2 implements Initializable{
         captSP.setValue(listCapt.getSelectionModel().getSelectedItem().toString());
         capt.textProperty().bind(getCaptSP());
     }
+    
     
 }

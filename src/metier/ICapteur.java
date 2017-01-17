@@ -9,6 +9,13 @@ import Controller.AbstractController;
 
 public abstract class ICapteur{
     ThreadCapteur t;
+    private int poids=1;
+    public void setPoid(int p){
+        poids=p;
+    }
+    public int getPoid(){
+        return poids;
+    }
     public static CapteurManager cm = new CapteurManager();
     public abstract double getTemperature();
     public AbstractController observer;
