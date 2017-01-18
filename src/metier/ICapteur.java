@@ -6,16 +6,23 @@
 package Metier;
 
 import Controller.AbstractController;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 
 public abstract class ICapteur{
     ThreadCapteur t;
-    private int poids=1;
-    public void setPoid(int p){
-        poids=p;
+    
+    private IntegerProperty poidP = new SimpleIntegerProperty();
+    public IntegerProperty poidProperty(){
+        return poidP;
     }
     public int getPoid(){
-        return poids;
+        return poidP.get();
     }
+    public void setPoid(int p){
+        this.poidP.set(p);
+    }
+    
     public static CapteurManager cm = new CapteurManager();
     public abstract double getTemperature();
     public AbstractController observer;

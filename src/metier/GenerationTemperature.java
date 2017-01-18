@@ -5,9 +5,17 @@
  */
 package Metier;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 public interface GenerationTemperature {
     
     public double randomPick();
     @Override
     public String toString();
+
+    public StringProperty algoProperty();
+    public String getAlgo();
+    void setAlgo();
+    
 }

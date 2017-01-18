@@ -9,7 +9,9 @@ import Controller.AbstractController;
 import java.lang.Thread.State;
 import java.util.Random;
 import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 
 /**
  *
@@ -18,11 +20,7 @@ import javafx.beans.property.SimpleDoubleProperty;
 public class Capteur extends ICapteur{
     
     private DoubleProperty temperature = new SimpleDoubleProperty();
-    private GenerationTemperature gt;
-    public void setAlgo(GenerationTemperature gt){
-        this.gt=gt;
-    }
-    
+    public GenerationTemperature gt;
     public DoubleProperty temperatureProperty(){
         return temperature;
     }
@@ -35,6 +33,11 @@ public class Capteur extends ICapteur{
     private void setTemperature(){
         this.temperature.set(gt.randomPick());
     }
+    
+    public void setAlgo(GenerationTemperature gt){
+        this.gt=gt;
+    }
+   
     
     public Capteur(GenerationTemperature gt){
         this.gt=gt;

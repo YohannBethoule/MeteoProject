@@ -39,6 +39,11 @@ public class MegaCapteurController2 implements Initializable{
     public ObservableStringValue getCaptSP(){
         return captSP;
     }
+    
+    private StringProperty algoSP = new SimpleStringProperty();
+    public ObservableStringValue getAlgoSP(){
+        return algoSP;
+    }
 
     
     public MegaCapteurController2(MegaCapteur mc){
@@ -53,6 +58,10 @@ public class MegaCapteurController2 implements Initializable{
         listMCapt.itemsProperty().bind(mc.lesMCapteurStringProperty());
         listMCapt.getSelectionModel().select(0);
         
+        poids.itemsProperty().bindBidirectional(cm.FindCapteur(capt.getSelectedText()).poidProperty());
+        System.out.println(cm.FindCapteur(capt.getSelectedText()).getPoid());
+        
+        //algoSP.setValue(cm.FindCapteur(capt.getSelectedText()).);
         
     }
     
