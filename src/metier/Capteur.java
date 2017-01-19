@@ -19,6 +19,7 @@ import javafx.beans.property.SimpleIntegerProperty;
  */
 public class Capteur extends ICapteur{
     
+    public String algo;
     private DoubleProperty temperature = new SimpleDoubleProperty();
     public GenerationTemperature gt;
     public DoubleProperty temperatureProperty(){
@@ -54,11 +55,11 @@ public class Capteur extends ICapteur{
         observer=null;
     }
 
-    
+    /*
     public void Actualiser(){
         this.setTemperature();
     }
-    
+    */
     
     @Override
     public void arreter(){
@@ -79,7 +80,7 @@ public class Capteur extends ICapteur{
     
     
     @Override
-    public void traitement(){
+    void traitement(){
         this.setTemperature();
     }
      

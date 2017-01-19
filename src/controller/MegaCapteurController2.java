@@ -5,6 +5,8 @@
  */
 package Controller;
 
+import Metier.Capteur;
+import Metier.ICapteur;
 import static Metier.ICapteur.cm;
 import Metier.MegaCapteur;
 import java.net.URL;
@@ -64,13 +66,10 @@ public class MegaCapteurController2 implements Initializable{
         listMCapt.itemsProperty().bind(mc.lesMCapteurStringProperty());
         listMCapt.getSelectionModel().select(0);
         
-        //poids.itemsProperty().bindBidirectional(cm.FindCapteur(capt.getSelectedText()).poidProperty());
-        //System.out.println(cm.FindCapteur(capt.getSelectedText()).getPoid());
         this.poids.getItems().setAll("1","2","3");
         this.algo.getItems().setAll("Défaut","Borne","Fenetre");
         this.gen.getItems().setAll(getListTps());
-        
-        //algoSP.setValue(cm.FindCapteur(capt.getSelectedText()).);
+
         
     }
     
@@ -78,13 +77,26 @@ public class MegaCapteurController2 implements Initializable{
     //Méthode appelé lorsqu'on veut ajouter un élement au mégaCapteur.
     @FXML
     private void ajoutMC(){
-        mc.ajouterC(cm.FindCapteur(listCapt.getSelectionModel().getSelectedItems().toString())); 
+        ICapteur c = cm.FindCapteur(listCapt.getSelectionModel().getSelectedItems().toString());
+        mc.ajouterC(c);
+        poids.getSelectionModel().select(getPoidAffich(c));
+        if(c instanceof Capteur){
+            algo.getSelectionModel().select(getAlgoAffich((Capteur)c));
+        }
+        gen.getSelectionModel().select(getTpsAffich(c));
+        listMCapt.itemsProperty().bind(mc.lesMCapteurStringProperty());
     }
     
     
     //Méthode appelé lorqu'on clique sur un des élements de la liste du MégaCpateur.
     @FXML
     private void ModifC(){
+        ICapteur c = cm.FindCapteur(listMCapt.getSelectionModel().getSelectedItems().toString());
+        poids.getSelectionModel().select(getPoidAffich(c));
+        if(c instanceof Capteur){
+            algo.getSelectionModel().select(getAlgoAffich((Capteur)c));
+        }
+        gen.getSelectionModel().select(getTpsAffich(c));
         captSP.setValue(listMCapt.getSelectionModel().getSelectedItem().toString());
         capt.textProperty().bind(getCaptSP());
     }
@@ -99,5 +111,27 @@ public class MegaCapteurController2 implements Initializable{
         return l;
     }
     
+    int getPoidAffich(ICapteur c)
+    {
+        if(c.poids==1){
+            return 1;
+        }else if (c.poids==2){
+            return 2;
+        }
+        return 3;
+    }
     
+    
+    int getAlgoAffich(Capteur c){
+        if(c.algo.equals("Defaut")){
+            return 1;
+        }else if(c.algo.equals("Borne")){
+            return 2;
+        }
+        return 3;
+    }
+    
+    int getTpsAffich(ICapteur c){
+        return (int)c.IntGeneration/1000-1;
+    }
 }

@@ -47,6 +47,7 @@ public class SimpleController implements Initializable {
         GenerationTemperature gt = new Borne();
         ICapteur c= new Capteur(gt,interDefault.getValue());
         ICapteur.cm.ajoutCapteur(c);
+        ((Capteur) c).algo="Defaut";
         showMessage(c);
     }
     
@@ -55,6 +56,7 @@ public class SimpleController implements Initializable {
         GenerationTemperature gt = new Borne(min.getValue(),max.getValue());
         ICapteur c= new Capteur(gt, interBorne.getValue());
         ICapteur.cm.ajoutCapteur(c);
+        ((Capteur) c).algo="Borne";
         showMessage(c);
     }
     
@@ -63,6 +65,7 @@ public class SimpleController implements Initializable {
         GenerationTemperature gt = new Fenetre(init.getValue(),fenetre.getValue());
         ICapteur c= new Capteur(gt, interFenetre.getValue());
         ICapteur.cm.ajoutCapteur(c);
+        ((Capteur) c).algo="Fenetre";
         showMessage(c);
     }
     

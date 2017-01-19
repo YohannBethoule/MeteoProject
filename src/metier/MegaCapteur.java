@@ -25,10 +25,10 @@ public class MegaCapteur extends ICapteur{
    
     private List<ICapteur> mc;
     private ObservableList<String> ObslistMC= FXCollections.observableArrayList();
-    private final ListProperty<String> listMC= new SimpleListProperty<>(ObslistMC);
+    private ListProperty<String> listMC= new SimpleListProperty<>(ObslistMC);
     public ObservableList<String> getLesMCapteurString() {return listMC.get();}
-        public void setLesMCapteurString(ObservableList<String> value) {listMC.set(value);}
-        public ListProperty<String> lesMCapteurStringProperty() {return listMC;}
+    public void setLesMCapteurString(ObservableList<String> value) {listMC.set(value);}
+    public ListProperty<String> lesMCapteurStringProperty() {return listMC;}
         
     private static final int PRECISION = 100;
     private DoubleProperty temperature = new SimpleDoubleProperty();
@@ -62,6 +62,7 @@ public class MegaCapteur extends ICapteur{
     
     public void ajouterC(ICapteur c){
         mc.add(c);
+        this.setLesMCapteurString(List2String());
         this.setTemperature();
     }
     
@@ -96,8 +97,15 @@ public class MegaCapteur extends ICapteur{
      }
      
      @Override
-     public void traitement(){
+     void traitement(){
          this.setTemperature();
      }
      
+     ObservableList<String> List2String(){
+        ObservableList<String> l = FXCollections.observableArrayList();
+        for(ICapteur c : this.mc){
+            l.add(c.toString());
+        }
+        return l;
+    }
 }

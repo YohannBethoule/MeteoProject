@@ -24,8 +24,7 @@ public abstract class ICapteur{
         this.poidP.set(p);
     }*/
     
-    int poids;
-
+    public int poids;
     public static CapteurManager cm = new CapteurManager();
     public abstract double getTemperature();
     public AbstractController observer;
@@ -37,6 +36,6 @@ public abstract class ICapteur{
     @Override
     public abstract String toString();
     public abstract void activer();
-    public abstract void traitement();
+    abstract void traitement();
 }
 
