@@ -79,6 +79,8 @@ public class Menu2Controller implements Initializable {
         Parent root = f.load();
         Scene scene = new Scene(root);
         
+        stage.setOnCloseRequest(event -> cm.ajoutCapteur(mc));
+        
         stage.setScene(scene);
         stage.show();
     }
@@ -97,24 +99,6 @@ public class Menu2Controller implements Initializable {
         stage.show();
     }
     
-    /*
-    @FXML
-    private void newMega() throws IOException{
-        ICapteur mc = new MegaCapteur();
-        
-        MegaCapteurController mcc= new MegaCapteurController((MegaCapteur) mc, ICapteur.cm);
-        Stage stage = new Stage();
-        FXMLLoader f = new FXMLLoader(getClass().getResource("/meteoproject/MegaCapteur.fxml"));
-        f.setController(mcc);
-        Parent root = f.load();
-        
-        Scene scene = new Scene(root);
-        
-        stage.setScene(scene);
-        
-        stage.show();
-    }
-    */
     
     
 }

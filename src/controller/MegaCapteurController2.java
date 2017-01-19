@@ -47,10 +47,6 @@ public class MegaCapteurController2 implements Initializable{
     public ObservableStringValue getAlgoSP(){
         return algoSP;
     }
-
-    
-    
-    
     
     public MegaCapteurController2(MegaCapteur mc){
         this.mc=mc;
@@ -70,7 +66,6 @@ public class MegaCapteurController2 implements Initializable{
         this.algo.getItems().setAll("Défaut","Borne","Fenetre");
         this.gen.getItems().setAll(getListTps());
 
-        
     }
     
     
@@ -92,6 +87,7 @@ public class MegaCapteurController2 implements Initializable{
     @FXML
     private void ModifC(){
         ICapteur c = cm.FindCapteur(listMCapt.getSelectionModel().getSelectedItems().toString());
+        
         poids.getSelectionModel().select(getPoidAffich(c));
         if(c instanceof Capteur){
             algo.getSelectionModel().select(getAlgoAffich((Capteur)c));
@@ -120,7 +116,6 @@ public class MegaCapteurController2 implements Initializable{
         }
         return 3;
     }
-    
     
     int getAlgoAffich(Capteur c){
         if(c.algo.equals("Defaut")){

@@ -39,7 +39,7 @@ public class MeteoWindowController extends AbstractController{
     private final ICapteur c;
     private DoubleProperty t;
     
-    public MeteoWindowController(ICapteur c) throws Exception{        
+    public MeteoWindowController(ICapteur c){        
         this.c=c;
         t = new SimpleDoubleProperty(c.getTemperature()); 
     }
