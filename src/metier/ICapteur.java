@@ -12,6 +12,7 @@ import javafx.beans.property.SimpleIntegerProperty;
 public abstract class ICapteur{
     ThreadCapteur t;
     
+    /*
     private IntegerProperty poidP = new SimpleIntegerProperty();
     public IntegerProperty poidProperty(){
         return poidP;
@@ -21,8 +22,10 @@ public abstract class ICapteur{
     }
     public void setPoid(int p){
         this.poidP.set(p);
-    }
+    }*/
     
+    int poids;
+
     public static CapteurManager cm = new CapteurManager();
     public abstract double getTemperature();
     public AbstractController observer;

@@ -43,12 +43,14 @@ public class Capteur extends ICapteur{
         this.gt=gt;
         setTemperature();
         observer=null;
+        this.poids=1;
     }
     
     public Capteur(GenerationTemperature gt, long interGen){
         this.IntGeneration=interGen*1000;
         this.gt=gt;
         setTemperature();
+        this.poids=1;
         observer=null;
     }
 

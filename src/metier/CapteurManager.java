@@ -48,8 +48,9 @@ public class CapteurManager {
     } 
     
     public ICapteur FindCapteur(String s){
-        for(ICapteur c : this.manager){
-            if(c.toString().equals(s)){
+        for(ICapteur c : manager){
+            String sc= "["+c.toString()+"]" ;
+            if(sc.equals(s)){
                 return c;
             }
         }

@@ -47,8 +47,8 @@ public class MegaCapteur extends ICapteur{
         int mt=0;
         int ptotal=0;
         for(ICapteur c : mc){
-            ptotal= ptotal + c.getPoid();
-            mt= (int)c.getTemperature()*c.getPoid() + mt;
+            ptotal= ptotal + c.poids;
+            mt= (int)c.getTemperature()*c.poids + mt;
         }
         this.temperature.set(Math.round((mt/mc.size()*PRECISION)/PRECISION)/ptotal);
     }
@@ -56,6 +56,7 @@ public class MegaCapteur extends ICapteur{
     public MegaCapteur(){
         mc=new ArrayList<>();
         this.IntGeneration=0;
+        this.poids=1;
     }
 
     
