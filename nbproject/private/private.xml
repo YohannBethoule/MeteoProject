@@ -3,27 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Léandre/Desktop/MeteoProject/src/controller/MeteoWindowController.java</file>
-            <file>file:/C:/Users/Léandre/Desktop/MeteoProject/src/controller/MegaCapteurController2.java</file>
-            <file>file:/C:/Users/Léandre/Desktop/MeteoProject/src/metier/ICapteur.java</file>
-            <file>file:/C:/Users/Léandre/Desktop/MeteoProject/src/metier/Fenetre.java</file>
-            <file>file:/C:/Users/Léandre/Desktop/MeteoProject/src/meteoproject/Menu2.fxml</file>
-            <file>file:/C:/Users/Léandre/Desktop/MeteoProject/src/meteoproject/MeteoWindow.fxml</file>
-            <file>file:/C:/Users/Léandre/Desktop/MeteoProject/src/meteoproject/CapteurSimple.fxml</file>
-            <file>file:/C:/Users/Léandre/Desktop/MeteoProject/src/controller/Menu2Controller.java</file>
-            <file>file:/C:/Users/Léandre/Desktop/MeteoProject/src/controller/SimpleController.java</file>
-            <file>file:/C:/Users/Léandre/Desktop/MeteoProject/src/metier/MegaCapteur.java</file>
-            <file>file:/C:/Users/Léandre/Desktop/MeteoProject/src/meteoproject/Menu.fxml</file>
-            <file>file:/C:/Users/Léandre/Desktop/MeteoProject/src/meteoproject/MegaCapteur2.fxml</file>
-            <file>file:/C:/Users/Léandre/Desktop/MeteoProject/src/metier/GenerationTemperature.java</file>
-            <file>file:/C:/Users/Léandre/Desktop/MeteoProject/src/meteoproject/MegaCapteur.fxml</file>
-            <file>file:/C:/Users/Léandre/Desktop/MeteoProject/src/metier/Capteur.java</file>
-            <file>file:/C:/Users/Léandre/Desktop/MeteoProject/src/controller/AbstractController.java</file>
-            <file>file:/C:/Users/Léandre/Desktop/MeteoProject/src/controller/MenuController.java</file>
-            <file>file:/C:/Users/Léandre/Desktop/MeteoProject/src/metier/CapteurManager.java</file>
-            <file>file:/C:/Users/Léandre/Desktop/MeteoProject/src/controller/MegaCapteurController.java</file>
-            <file>file:/C:/Users/Léandre/Desktop/MeteoProject/src/MeteoProject.java</file>
-            <file>file:/C:/Users/Léandre/Desktop/MeteoProject/src/metier/Borne.java</file>
+            <file>file:/C:/Users/BASTIEN/Desktop/MeteoProject/src/controller/MegaCapteurController2.java</file>
+            <file>file:/C:/Users/BASTIEN/Desktop/MeteoProject/src/controller/UCCaptController.java</file>
         </group>
     </open-files>
 </project-private>

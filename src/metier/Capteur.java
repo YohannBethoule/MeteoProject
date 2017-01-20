@@ -45,6 +45,7 @@ public class Capteur extends ICapteur{
         setTemperature();
         observer=null;
         this.poids=1;
+        numero=cm.nbCapt;
     }
     
     public Capteur(GenerationTemperature gt, long interGen){
@@ -53,6 +54,7 @@ public class Capteur extends ICapteur{
         setTemperature();
         this.poids=1;
         observer=null;
+        numero=cm.nbCapt;
     }
 
     /*
@@ -69,7 +71,7 @@ public class Capteur extends ICapteur{
      
      @Override
      public String toString(){
-         return"Capteur Simple "+this.gt.toString()+" intervale de generation = "+this.IntGeneration/1000+"s";
+         return numero+": Capteur Simple "+this.gt.toString()+" intervale de generation = "+this.IntGeneration/1000+"s";
      }
     
     @Override

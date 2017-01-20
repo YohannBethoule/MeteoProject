@@ -23,12 +23,13 @@ import Metier.GenerationTemperature;
 import Metier.ICapteur;
 import Metier.MegaCapteur;
 import javafx.scene.control.ComboBox;
+import javafx.scene.layout.HBox;
 
 /**
  *
  * @author bagandboeu
  */
-public class MegaCapteurController implements Initializable{
+public class MegaCapteurController  extends HBox implements Initializable{
     @FXML
     private Spinner<Integer> min,max,init,fenetre,dureeR;
     

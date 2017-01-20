@@ -24,7 +24,9 @@ public class CapteurManager {
     public ObservableList<String> getLesCapteurString() {return listPC.get();}
         public void setLesCapteurString(ObservableList<String> value) {listPC.set(value);}
         public ListProperty<String> lesCapteurStringProperty() {return listPC;}
-        
+    
+    int nbCapt=0;
+    
     public CapteurManager(){
         manager = new ArrayList<>();
     }
@@ -32,10 +34,7 @@ public class CapteurManager {
     public void ajoutCapteur(ICapteur ic){
         manager.add(ic);
         this.setLesCapteurString(List2String());
-    }
-    
-    public void supprCapteur(ICapteur ic){
-        manager.remove(manager.indexOf(ic));
+        nbCapt=nbCapt=1;
     }
     
     
@@ -50,7 +49,7 @@ public class CapteurManager {
     public ICapteur FindCapteur(String s){
         for(ICapteur c : manager){
             String sc= "["+c.toString()+"]" ;
-            if(sc.equals(s)){
+            if(sc.equals(s) || s.equals(c.toString())){
                 return c;
             }
         }

@@ -57,6 +57,7 @@ public class MegaCapteur extends ICapteur{
         mc=new ArrayList<>();
         this.IntGeneration=0;
         this.poids=1;
+        numero=cm.nbCapt;
     }
 
     
@@ -83,7 +84,7 @@ public class MegaCapteur extends ICapteur{
     
     @Override
      public String toString(){
-         return "MegaCapteur avec "+this.mc.size()+" capteurs";
+         return numero+": MegaCapteur avec "+this.mc.size()+" éléments";
      }
      
      

@@ -21,6 +21,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 
 /**
  *
@@ -34,6 +35,8 @@ public class MegaCapteurController2 implements Initializable{
     private ComboBox poids, algo, gen;
     @FXML
     private TextField capt;
+    @FXML
+    private VBox UCparent; 
     
     private MegaCapteur mc;
     
@@ -61,10 +64,10 @@ public class MegaCapteurController2 implements Initializable{
         
         listMCapt.itemsProperty().bind(mc.lesMCapteurStringProperty());
         listMCapt.getSelectionModel().select(0);
-        
+        /*
         this.poids.getItems().setAll("1","2","3");
         this.algo.getItems().setAll("Défaut","Borne","Fenetre");
-        this.gen.getItems().setAll(getListTps());
+        this.gen.getItems().setAll(getListTps());*/
 
     }
     
@@ -74,11 +77,6 @@ public class MegaCapteurController2 implements Initializable{
     private void ajoutMC(){
         ICapteur c = cm.FindCapteur(listCapt.getSelectionModel().getSelectedItems().toString());
         mc.ajouterC(c);
-        poids.getSelectionModel().select(getPoidAffich(c));
-        if(c instanceof Capteur){
-            algo.getSelectionModel().select(getAlgoAffich((Capteur)c));
-        }
-        gen.getSelectionModel().select(getTpsAffich(c));
         listMCapt.itemsProperty().bind(mc.lesMCapteurStringProperty());
     }
     
@@ -88,45 +86,24 @@ public class MegaCapteurController2 implements Initializable{
     private void ModifC(){
         ICapteur c = cm.FindCapteur(listMCapt.getSelectionModel().getSelectedItems().toString());
         
-        poids.getSelectionModel().select(getPoidAffich(c));
+        if(c instanceof Capteur){
+            UCCaptController UC = new UCCaptController((Capteur)c);
+            UCparent.getChildren().add(UC);
+        }else {
+            UCMegaCaptController UC;
+            UC = new UCMegaCaptController();
+            UCparent.getChildren().add(UC);
+        }
+        
+        /*poids.getSelectionModel().select(getPoidAffich(c));
         if(c instanceof Capteur){
             algo.getSelectionModel().select(getAlgoAffich((Capteur)c));
         }
         gen.getSelectionModel().select(getTpsAffich(c));
         captSP.setValue(listMCapt.getSelectionModel().getSelectedItem().toString());
-        capt.textProperty().bind(getCaptSP());
+        capt.textProperty().bind(getCaptSP());*/
     }
     
     
-    //Méthode qui retourne une liste de nombre entier.
-    private List getListTps(){
-        List<Integer> l= new ArrayList<>();
-        for(int i=1; i<31;i++){
-            l.add(i);
-        }
-        return l;
-    }
     
-    int getPoidAffich(ICapteur c)
-    {
-        if(c.poids==1){
-            return 1;
-        }else if (c.poids==2){
-            return 2;
-        }
-        return 3;
-    }
-    
-    int getAlgoAffich(Capteur c){
-        if(c.algo.equals("Defaut")){
-            return 1;
-        }else if(c.algo.equals("Borne")){
-            return 2;
-        }
-        return 3;
-    }
-    
-    int getTpsAffich(ICapteur c){
-        return (int)c.IntGeneration/1000-1;
-    }
 }

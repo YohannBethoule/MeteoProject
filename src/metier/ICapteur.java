@@ -23,7 +23,7 @@ public abstract class ICapteur{
     public void setPoid(int p){
         this.poidP.set(p);
     }
-    
+    int numero;
     public int poids;
     public static CapteurManager cm = new CapteurManager();
     public abstract double getTemperature();
