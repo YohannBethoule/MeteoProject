@@ -21,7 +21,7 @@
                   <Label fx:id="lab1" text="Label" />
                   <ComboBox fx:id="c1" prefHeight="25.0" prefWidth="62.0" />
                   <Label fx:id="lab2" text="Label" />
-                  <ComboBox fx:id="c2" prefHeight="25.0" prefWidth="28.0" />
+                  <ComboBox fx:id="c2" prefHeight="25.0" prefWidth="65.0" />
                </children>
             </HBox>
          </center>

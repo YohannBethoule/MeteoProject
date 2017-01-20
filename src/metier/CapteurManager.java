@@ -21,6 +21,7 @@ public class CapteurManager {
     private List<ICapteur> manager;
     private ObservableList<String> ObslistC= FXCollections.observableArrayList();
     private final ListProperty<String> listPC= new SimpleListProperty<>(ObslistC);
+    
     public ObservableList<String> getLesCapteurString() {return listPC;}
         public void setLesCapteurString(ObservableList<String> value) {listPC.set(value);}
         public ListProperty<String> lesCapteurStringProperty() {return listPC;}

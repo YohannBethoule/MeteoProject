@@ -49,7 +49,6 @@ public class UCCaptController extends HBox implements Initializable {
            f.setController(this);
            f.setRoot(this);
            f.load();
-           System.out.println("Controller.UCCaptController.<init>()");
         }catch(Exception e){
             System.out.println("Controller.UCCaptController.<init>()");
         }
@@ -61,7 +60,6 @@ public class UCCaptController extends HBox implements Initializable {
         capt.appendText(c.toString());
         mcc=m;
     }
-    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {

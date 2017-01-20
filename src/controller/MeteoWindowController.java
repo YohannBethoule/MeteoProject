@@ -5,27 +5,27 @@
  */
 package Controller;
 
+import Metier.Capteur;
 import Metier.ChoixImg;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import Metier.ICapteur;
-import com.sun.scenario.effect.ImageData;
-import java.awt.event.ActionEvent;
-import javafx.event.Event;
-import javafx.scene.Node;
+import static Metier.ICapteur.cm;
+import Metier.MegaCapteur;
+import java.io.IOException;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Background;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 /**
  * FXML Controller class
  *
@@ -38,6 +38,7 @@ public class MeteoWindowController extends AbstractController{
     @FXML private ImageView img;
     private final ICapteur c;
     private DoubleProperty t;
+
     
     public MeteoWindowController(ICapteur c){        
         this.c=c;
@@ -72,7 +73,6 @@ public class MeteoWindowController extends AbstractController{
           img.setImage(i);
     }
     
-   
      public void stop(){
          this.c.arreter();
      }

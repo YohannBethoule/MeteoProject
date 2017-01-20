@@ -22,6 +22,7 @@ public class Capteur extends ICapteur{
     public String algo;
     private DoubleProperty temperature = new SimpleDoubleProperty();
     private GenerationTemperature gt;
+    
     public DoubleProperty temperatureProperty(){
         return temperature;
     }

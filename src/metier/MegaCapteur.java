@@ -5,9 +5,7 @@
  */
 package Metier;
 
-import Controller.AbstractController;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.ListProperty;
@@ -26,6 +24,7 @@ public class MegaCapteur extends ICapteur{
     private List<ICapteur> mc;
     private ObservableList<String> ObslistMC= FXCollections.observableArrayList();
     private ListProperty<String> listMC= new SimpleListProperty<>(ObslistMC);
+    
     public ObservableList<String> getLesMCapteurString() {return listMC.get();}
     public void setLesMCapteurString(ObservableList<String> value) {listMC.set(value);}
     public ListProperty<String> lesMCapteurStringProperty() {return listMC;}

@@ -94,13 +94,13 @@ public class MegaCapteurController2 implements Initializable{
     }
         
     
-        void majList(){
-            cm.setLesCapteurString(cm.List2String());
-            mc.setLesMCapteurString(mc.List2String());
-            listCapt.itemsProperty().bind(cm.lesCapteurStringProperty());
-            listMCapt.itemsProperty().bind(mc.lesMCapteurStringProperty());
-         }
+    void majList(){
+        cm.setLesCapteurString(cm.List2String());
+        mc.setLesMCapteurString(mc.List2String());
+        listCapt.itemsProperty().bind(cm.lesCapteurStringProperty());
+        listMCapt.itemsProperty().bind(mc.lesMCapteurStringProperty());
     }
+}
     
     
 
