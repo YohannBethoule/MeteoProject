@@ -46,26 +46,31 @@ public class SimpleController implements Initializable {
     private void algo1() throws Exception{
         GenerationTemperature gt = new Borne();
         ICapteur c= new Capteur(gt,interDefault.getValue());
-        ICapteur.cm.ajoutCapteur(c);
         ((Capteur) c).algo="Defaut";
+        ICapteur.cm.ajoutCapteur(c);
+        
         showMessage(c);
     }
     
     @FXML
     private void algo2() throws Exception{
-        GenerationTemperature gt = new Borne(min.getValue(),max.getValue());
-        ICapteur c= new Capteur(gt, interBorne.getValue());
-        ICapteur.cm.ajoutCapteur(c);
-        ((Capteur) c).algo="Borne";
-        showMessage(c);
+        if(min.getValue()>max.getValue()){
+            showErre();
+        }else{
+            GenerationTemperature gt = new Borne(min.getValue(),max.getValue());
+            ICapteur c= new Capteur(gt, interBorne.getValue());
+           ((Capteur) c).algo="Borne";
+            ICapteur.cm.ajoutCapteur(c);
+            showMessage(c);
+        }
     }
     
     @FXML
     private void algo3() throws Exception{
         GenerationTemperature gt = new Fenetre(init.getValue(),fenetre.getValue());
         ICapteur c= new Capteur(gt, interFenetre.getValue());
-        ICapteur.cm.ajoutCapteur(c);
         ((Capteur) c).algo="Fenetre";
+        ICapteur.cm.ajoutCapteur(c);
         showMessage(c);
     }
     
@@ -76,4 +81,13 @@ public class SimpleController implements Initializable {
         alert.setHeaderText(null);
         alert.showAndWait();
     }
+    
+    private void showErre() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Information");
+        alert.setContentText("Le min doit être inférieur au max !");
+        alert.setHeaderText(null);
+        alert.showAndWait();
+    }
+    
 }

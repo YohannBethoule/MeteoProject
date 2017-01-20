@@ -31,12 +31,10 @@ public class MegaCapteurController2 implements Initializable{
     
     @FXML
     private ListView listCapt, listMCapt;
+    
+    
     @FXML
-    private ComboBox poids, algo, gen;
-    @FXML
-    private TextField capt;
-    @FXML
-    private VBox UCparent; 
+     VBox UCparent; 
     
     private MegaCapteur mc;
     
@@ -64,11 +62,7 @@ public class MegaCapteurController2 implements Initializable{
         
         listMCapt.itemsProperty().bind(mc.lesMCapteurStringProperty());
         listMCapt.getSelectionModel().select(0);
-        /*
-        this.poids.getItems().setAll("1","2","3");
-        this.algo.getItems().setAll("Défaut","Borne","Fenetre");
-        this.gen.getItems().setAll(getListTps());*/
-
+        
     }
     
     
@@ -85,25 +79,28 @@ public class MegaCapteurController2 implements Initializable{
     @FXML
     private void ModifC(){
         ICapteur c = cm.FindCapteur(listMCapt.getSelectionModel().getSelectedItems().toString());
-        
+        UCparent.getChildren().clear();
         if(c instanceof Capteur){
-            UCCaptController UC = new UCCaptController((Capteur)c);
+            UCCaptController UC = new UCCaptController((Capteur)c, this);
             UCparent.getChildren().add(UC);
+            listCapt.itemsProperty().bind(cm.lesCapteurStringProperty());
+            listMCapt.itemsProperty().bind(mc.lesMCapteurStringProperty());
         }else {
-            UCMegaCaptController UC;
-            UC = new UCMegaCaptController();
+            UCMegaCaptController UC = new UCMegaCaptController(c,this);
             UCparent.getChildren().add(UC);
+            
         }
+        majList();
+    }
         
-        /*poids.getSelectionModel().select(getPoidAffich(c));
-        if(c instanceof Capteur){
-            algo.getSelectionModel().select(getAlgoAffich((Capteur)c));
-        }
-        gen.getSelectionModel().select(getTpsAffich(c));
-        captSP.setValue(listMCapt.getSelectionModel().getSelectedItem().toString());
-        capt.textProperty().bind(getCaptSP());*/
+    
+        void majList(){
+            cm.setLesCapteurString(cm.List2String());
+            mc.setLesMCapteurString(mc.List2String());
+            listCapt.itemsProperty().bind(cm.lesCapteurStringProperty());
+            listMCapt.itemsProperty().bind(mc.lesMCapteurStringProperty());
+         }
     }
     
     
-    
-}
+

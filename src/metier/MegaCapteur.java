@@ -102,7 +102,7 @@ public class MegaCapteur extends ICapteur{
          this.setTemperature();
      }
      
-     ObservableList<String> List2String(){
+     public ObservableList<String> List2String(){
         ObservableList<String> l = FXCollections.observableArrayList();
         for(ICapteur c : this.mc){
             l.add(c.toString());
